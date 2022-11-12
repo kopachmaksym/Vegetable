@@ -1,16 +1,16 @@
 public class HighCalorieVeg extends Vegetable{
 
-    private float calorie;
-    private float mass;
+    private double calorie;
+    private double mass;
 
-    HighCalorieVeg(String nm, float cal, float ms) {
+    HighCalorieVeg(String nm, double cal, double ms) {
         super(nm);
         calorie = cal;
         mass = ms;
     }
 
     public String toString(){
-        return String.format("Vegetable: %s\nCalorie: %f\nMass: %f\nType: High-Calorie\n", name, calorie, mass);
+        return String.format("Vegetable: %s\nCalorie: %fcal\nMass: %fg\nType: Low-Calorie\n", name, calorie, mass);
     }
 
 }

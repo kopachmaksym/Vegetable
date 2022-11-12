@@ -1,5 +1,5 @@
 public class Vegetable {
-    String name;
+    protected String name;
 
     Vegetable(String nm){
         name = nm;

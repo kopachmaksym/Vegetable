@@ -1,7 +1,7 @@
 public class MedCalorieVeg extends Vegetable{
 
-    float calorie;
-    float mass;
+    private float calorie;
+    private float mass;
 
     MedCalorieVeg(String nm, float cal, float ms) {
         super(nm);

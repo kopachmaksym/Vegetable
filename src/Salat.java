@@ -5,4 +5,10 @@ public class Salat {
 
     List<Vegetable> salat = new ArrayList<>();
 
+    Salat(){
+
+    }
+
+
+
 }

@@ -22,8 +22,13 @@ public class Salat {
         }
     }
 
-    public void CalRange(double more, double less){
+    public void CalRange(){
         int j=1;
+        double more, less;
+        System.out.print("\tEnter the range:\n\t\tMore: ");
+        more = scanner.nextFloat();
+        System.out.print("\t\tLess: ");
+        less = scanner.nextFloat();
         System.out.println(String.format("%s's vegetable in range > %.1f and < %.1f",salat,more,less));
         for (int i=0;i<veg.size();i++){
             if(calories.get(i)>more && calories.get(i)< less){

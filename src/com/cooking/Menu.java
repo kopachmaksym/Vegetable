@@ -1,13 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+package com.cooking;
 
+import java.util.*;
 public class Menu {
     Scanner scanner = new Scanner(System.in);
     List<Vegetable> veg = new ArrayList<>();
 
-    Menu(){
+    public Menu(){
         veg = VegDefault(veg);
     }
 
@@ -78,10 +76,21 @@ public class Menu {
                 if (var == 4) {
                     continue;
                 } else if (var == 1) {
-                    sal = new Salat(VegSelect(veg));
+                    sal = new Salat(VegSelect());
                     System.out.println(sal.toString());
                 } else if (var == 2) {
-                    veg = AddVegetables(veg);
+                    if (sal == null){
+                        System.out.println("You didn't make a salat. First, select the create option.");
+                    }
+                    else {
+                        System.out.print("Choose parameter of sorting (1)by mass (2)by calories: ");
+                        var = scanner.nextInt();
+                        while (var!=1 && var!=2){
+                            System.out.print("\t\t\tSelect: ");
+                            var = scanner.nextInt();
+                        }
+                        sal.bubbleSort(var);
+                    }
                 } else if (var == 3) {
                     if (sal == null){
                         System.out.println("You didn't make a salat. First, select the create option.");
@@ -98,13 +107,13 @@ public class Menu {
         }
     }
 
-    public void VegList(List<Vegetable> list){
+    private void VegList(List<Vegetable> list){
         for(int i=0;i<list.size();i++){
             System.out.println(String.format("\n\t%d.\n%s",i+1,list.get(i).toString()));
         }
     }
 
-    public List<Vegetable> AddVegetables(List<Vegetable> veg){
+    private List<Vegetable> AddVegetables(List<Vegetable> veg){
         scanner.useLocale(Locale.US);
         String name;
         double cal;
@@ -132,7 +141,7 @@ public class Menu {
         return veg;
     }
 
-    public List<Vegetable> VegRemove(List<Vegetable> veg){
+    private List<Vegetable> VegRemove(List<Vegetable> veg){
         VegList(veg);
         System.out.print("Select: ");
         int var = scanner.nextInt();
@@ -144,13 +153,14 @@ public class Menu {
         return veg;
     }
 
-    public List<Vegetable> VegSelect(List<Vegetable> choise){
+    private List<Vegetable> VegSelect(){
+        List<Vegetable> choise = veg;
         List<Vegetable> select = new ArrayList<>();
         System.out.println("List of not selected vegetables: ");
 
         while (true){
             VegList(choise);
-            System.out.print("\n\t\tList of selected vegetables: ");
+            System.out.print("\n\t\tList of selected vegetables(insert '0' to complete the operation): ");
             for(int i=0;i<select.size();i++){
                 System.out.print(select.get(i).getName() + " ");
             }

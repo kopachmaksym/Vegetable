@@ -1,3 +1,5 @@
+package com.cooking;
+
 public class Vegetable {
     protected String name;
 

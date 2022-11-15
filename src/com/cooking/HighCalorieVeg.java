@@ -1,3 +1,5 @@
+package com.cooking;
+
 public class HighCalorieVeg extends Vegetable{
 
     private final double calorie;

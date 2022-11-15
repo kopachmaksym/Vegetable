@@ -5,6 +5,14 @@ public class Vegetable {
         name = nm;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public double getCalorie(){
+        return 0;
+    }
+
     public String toString(){
         return "";
     }

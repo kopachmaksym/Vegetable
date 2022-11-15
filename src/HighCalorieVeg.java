@@ -8,8 +8,12 @@ public class HighCalorieVeg extends Vegetable{
         calorie = kcal;
     }
 
+    public double getCalorie(){
+        return calorie;
+    }
+
     public String toString(){
-        return String.format("\t\tVegetable: %s\n\t\tCalorie: %.1f kcal/100g\n\t\tType: %s\n", name, calorie, type);
+        return String.format("\t\tVegetable: %s\n\t\tCalorie: %.1f kcal/100g\n\t\tType: %s\n\n", name, calorie, type);
     }
 
 }

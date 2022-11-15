@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Menu {
 
     //1.Будуть дефолтні овочі

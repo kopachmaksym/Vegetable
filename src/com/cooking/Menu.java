@@ -1,5 +1,6 @@
 package com.cooking;
 
+import java.io.IOException;
 import java.util.*;
 public class Menu {
     Scanner scanner = new Scanner(System.in);
@@ -18,22 +19,23 @@ public class Menu {
         return veg;
     }
 
-    public void Selection(){
+    public void Selection() throws IOException {
         Salat sal = null;
         System.out.println("\n\n\t\t\t\t\t\tMenu");
         int var;
         while(true){
             System.out.println("\n\t\t\t1.Vegetables (show, add, remove)\n" +
                     "\t\t\t2.Salat(show all, creation, sorting, calories ranging)\n" +
-                    "\t\t\t3.Help\n" +
-                    "\t\t\t4.Exit\n");
+                    "\t\t\t3.Read list of salats from file\n" +
+                    "\t\t\t4.Help\n" +
+                    "\t\t\t5.Exit\n");
             System.out.print("\t\tSelect: ");
             var = scanner.nextInt();
-            while (var <=0 || var > 4){
+            while (var <=0 || var > 5){
                 System.out.print("\t\tSelect: ");
                 var = scanner.nextInt();
             }
-            if(var == 4){
+            if(var == 5){
                 break;
             }
             else if (var == 1) {
@@ -78,6 +80,8 @@ public class Menu {
                 } else if (var == 1) {
                     sal = new Salat(VegSelect());
                     System.out.println(sal.toString());
+                    FileWorking file = new FileWorking();
+                    file.FileWriting(sal.toString());
                 } else if (var == 2) {
                     if (sal == null){
                         System.out.println("You didn't make a salat. First, select the create option.");
@@ -102,7 +106,18 @@ public class Menu {
                 }
             }
             else if (var == 3) {
-                System.out.println("\n\t\t\tVegetables\n");
+                System.out.println("\n\n\n");
+                FileWorking file = new FileWorking();
+                file.FileReading("C:\\Users\\mk410\\OneDrive\\Desktop\\JavaProjects\\ComplexWork\\src\\com\\cooking\\Salats.txt");
+                System.out.print("Insert any number to continue: ");
+                int numb = scanner.nextInt();
+            }
+            else if (var == 4) {
+                System.out.println("\n\n\n");
+                FileWorking file = new FileWorking();
+                file.FileReading("C:\\Users\\mk410\\OneDrive\\Desktop\\JavaProjects\\ComplexWork\\src\\com\\cooking\\Help.txt");
+                System.out.print("Insert any number to continue: ");
+                int numb = scanner.nextInt();
             }
         }
     }

@@ -1,0 +1,11 @@
+
+
+
+	Name: Salat
+	Weight: 1,050kg
+	Calories: 603,0kcal
+	Vegetables in salat:
+		1. Tomato (0,250kg, 165,0kcal)
+		2. Cucumber (0,700kg, 315,0kcal)
+		3. Carrot (0,100kg, 123,0kcal)
+

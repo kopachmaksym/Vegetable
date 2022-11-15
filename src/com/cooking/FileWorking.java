@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class FileWorking {
 
     public void FileWriting(String salat) throws IOException {
+        /*
+        Writing new salat to Salats.txt
+         */
         BufferedWriter writer = new BufferedWriter(new FileWriter(
                 "C:\\Users\\mk410\\OneDrive\\Desktop\\JavaProjects\\ComplexWork\\src\\com\\cooking\\Salats.txt",true));
         writer.append(String.format("\n\n%s",salat));
@@ -12,6 +15,9 @@ public class FileWorking {
     }
 
     public void FileReading(String path) throws IOException {
+        /*
+        Read file from path
+         */
         File myObj = new File(path);
         Scanner reader = new Scanner(myObj);
         while (reader.hasNextLine()) {

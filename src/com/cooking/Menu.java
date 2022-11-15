@@ -1,5 +1,4 @@
 package com.cooking;
-
 import java.io.IOException;
 import java.util.*;
 public class Menu {
@@ -7,10 +6,16 @@ public class Menu {
     List<Vegetable> veg = new ArrayList<>();
 
     public Menu(){
+        /*
+        Constructor
+         */
         veg = VegDefault(veg);
     }
 
     private List<Vegetable> VegDefault(List<Vegetable> veg){
+        /*
+        Default vegetables for easier using (you don't need to create a lot of new vegetables)
+         */
         veg.add(new LowCalorieVeg("Tomato",660));
         veg.add(new LowCalorieVeg("Cucumber",450));
         veg.add(new HighCalorieVeg("Carrot",1230));
@@ -20,6 +25,9 @@ public class Menu {
     }
 
     public void Selection() throws IOException {
+        /*
+        Main menu
+         */
         Salat sal = null;
         System.out.println("\n\n\t\t\t\t\t\tMenu");
         int var;
@@ -42,6 +50,9 @@ public class Menu {
                 break;
             }
             else if (var == 1) {
+                        /*
+                        Submenu for vegetables and his operations
+                        */
                 System.out.println("""
 
                         \t\t\tVegetables
@@ -70,6 +81,9 @@ public class Menu {
                 }
             }
             else if (var == 2) {
+                        /*
+                        Submenu for salats and his operations
+                        */
                 System.out.println("""
 
                         \t\t\tSalat
@@ -115,6 +129,9 @@ public class Menu {
                 }
             }
             else if (var == 3) {
+                        /*
+                        Read file Salats.txt (it contains all saved salats)
+                        */
                 System.out.println("\n\n\n");
                 FileWorking file = new FileWorking();
                 file.FileReading("C:\\Users\\mk410\\OneDrive\\Desktop\\JavaProjects\\ComplexWork\\src\\com\\cooking\\Salats.txt");
@@ -122,6 +139,9 @@ public class Menu {
                 int numb = scanner.nextInt();
             }
             else {
+                        /*
+                        Read file Help.txt (it contains documentation of using progmamme)
+                        */
                 System.out.println("\n\n\n");
                 FileWorking file = new FileWorking();
                 file.FileReading("C:\\Users\\mk410\\OneDrive\\Desktop\\JavaProjects\\ComplexWork\\src\\com\\cooking\\Help.txt");
@@ -132,12 +152,18 @@ public class Menu {
     }
 
     private void VegList(List<Vegetable> list){
+        /*
+        List of vegetables
+         */
         for(int i=0;i<list.size();i++){
             System.out.printf("\n\t%d.\n%s%n",i+1,list.get(i).toString());
         }
     }
 
     private List<Vegetable> AddVegetables(List<Vegetable> veg){
+        /*
+        Add new vegetables to List
+         */
         scanner.useLocale(Locale.US);
         String name;
         double cal;
@@ -162,6 +188,9 @@ public class Menu {
     }
 
     private List<Vegetable> VegRemove(List<Vegetable> veg){
+        /*
+        Remove vegetable from List
+         */
         VegList(veg);
         System.out.print("Select: ");
         int var = scanner.nextInt();
@@ -174,6 +203,9 @@ public class Menu {
     }
 
     private List<Vegetable> VegSelect(){
+        /*
+        Creating salat from vegetables
+         */
         List<Vegetable> choise = veg;
         List<Vegetable> select = new ArrayList<>();
         System.out.println("List of not selected vegetables: ");

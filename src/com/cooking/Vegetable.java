@@ -1,6 +1,9 @@
 package com.cooking;
 
 public class Vegetable {
+    /*
+    Class with name of vegetable
+    */
     protected String name;
 
     Vegetable(String nm){

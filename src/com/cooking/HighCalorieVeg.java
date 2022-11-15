@@ -1,7 +1,9 @@
 package com.cooking;
 
 public class HighCalorieVeg extends Vegetable{
-
+    /*
+    1000kcal vegetable and more (depends on 100g)
+    */
     private final double calorie;
     private final String type = "High-Calorie";
 

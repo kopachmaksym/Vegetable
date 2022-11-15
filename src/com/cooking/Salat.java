@@ -9,6 +9,9 @@ public class Salat {
     private final List<Double> calories = new ArrayList<>();
 
     Salat(List<Vegetable> select){
+        /*
+        Constructor
+         */
         scanner.useLocale(Locale.US);
         System.out.print("Insert the name of the salat: ");
         salat = scanner.next();
@@ -21,6 +24,9 @@ public class Salat {
     }
 
     public void CalRange(){
+        /*
+        Finding vegetables with needed calories from salat
+         */
         int j=1;
         double more, less;
         System.out.print("\tEnter the range:\n\t\tMore: ");
@@ -38,6 +44,10 @@ public class Salat {
 
     public String toString(){
 
+        /*
+        Method of returning salat's data
+         */
+
         double ms = 0, cl = 0;
         String text = String.format("\n\tName: %s\n",salat);
         String add ="\n\tVegetables in salat:\n";
@@ -53,6 +63,9 @@ public class Salat {
     }
 
     public void bubbleSort(int var){
+        /*
+        Sorting methods
+         */
         Double[] sortarr = new Double[mass.size()];
         Double[] addsort = new Double[calories.size()];
         String[] veget = new String[veg.size()];

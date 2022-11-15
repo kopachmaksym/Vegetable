@@ -2,11 +2,11 @@ package com.cooking;
 
 import java.util.*;
 public class Salat {
-    private Scanner scanner = new Scanner(System.in);
-    private String salat;
-    private List<String> veg = new ArrayList<>();
-    private List<Double> mass = new ArrayList<>();
-    private List<Double> calories = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
+    private final String salat;
+    private final List<String> veg = new ArrayList<>();
+    private final List<Double> mass = new ArrayList<>();
+    private final List<Double> calories = new ArrayList<>();
 
     Salat(List<Vegetable> select){
         scanner.useLocale(Locale.US);
@@ -27,10 +27,10 @@ public class Salat {
         more = scanner.nextFloat();
         System.out.print("\t\tLess: ");
         less = scanner.nextFloat();
-        System.out.println(String.format("%s's vegetable in range > %.1f and < %.1f",salat,more,less));
+        System.out.printf("%s's vegetable in range > %.1f and < %.1f%n",salat,more,less);
         for (int i=0;i<veg.size();i++){
             if(calories.get(i)>more && calories.get(i)< less){
-                System.out.println(String.format("\t\t%d. %s - %.1fkcal",j,veg.get(i),calories.get(i)));
+                System.out.printf("\t\t%d. %s - %.1fkcal%n",j,veg.get(i),calories.get(i));
                 j++;
             }
         }

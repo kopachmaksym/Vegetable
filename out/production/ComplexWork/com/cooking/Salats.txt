@@ -9,3 +9,14 @@
 		2. Cucumber (0,700kg, 315,0kcal)
 		3. Carrot (0,100kg, 123,0kcal)
 
+
+
+
+	Name: Mix
+	Weight: 1,200kg
+	Calories: 834,0kcal
+	Vegetables in salat:
+		1. Cucumber (0,300kg, 135,0kcal)
+		2. Carrot (0,100kg, 123,0kcal)
+		3. Cabbage (0,800kg, 576,0kcal)
+

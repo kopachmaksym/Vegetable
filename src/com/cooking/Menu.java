@@ -24,11 +24,14 @@ public class Menu {
         System.out.println("\n\n\t\t\t\t\t\tMenu");
         int var;
         while(true){
-            System.out.println("\n\t\t\t1.Vegetables (show, add, remove)\n" +
-                    "\t\t\t2.Salat(show all, creation, sorting, calories ranging)\n" +
-                    "\t\t\t3.Read list of salats from file\n" +
-                    "\t\t\t4.Help\n" +
-                    "\t\t\t5.Exit\n");
+            System.out.println("""
+
+                    \t\t\t1.Vegetables (show, add, remove)
+                    \t\t\t2.Salat(show all, creation, sorting, calories ranging)
+                    \t\t\t3.Read list of salats from file
+                    \t\t\t4.Help
+                    \t\t\t5.Exit
+                    """);
             System.out.print("\t\tSelect: ");
             var = scanner.nextInt();
             while (var <=0 || var > 5){
@@ -39,11 +42,14 @@ public class Menu {
                 break;
             }
             else if (var == 1) {
-                System.out.println("\n\t\t\tVegetables\n" +
-                        "\t\t\t\t1.Show list\n" +
-                        "\t\t\t\t2.Add new vegetables\n" +
-                        "\t\t\t\t3.Remove one\n" +
-                        "\t\t\t\t4.Cancel\n") ;
+                System.out.println("""
+
+                        \t\t\tVegetables
+                        \t\t\t\t1.Show list
+                        \t\t\t\t2.Add new vegetables
+                        \t\t\t\t3.Remove one
+                        \t\t\t\t4.Cancel
+                        """) ;
                 System.out.print("\t\t\tSelect: ");
                 var = scanner.nextInt();
                 while (var <=0 || var > 4){
@@ -59,16 +65,19 @@ public class Menu {
                 else if (var == 2) {
                     veg = AddVegetables(veg);
                 }
-                else if (var == 3) {
+                else {
                     veg = VegRemove(veg);
                 }
             }
             else if (var == 2) {
-                System.out.println("\n\t\t\tSalat\n" +
-                        "\t\t\t\t1.Create\n" +
-                        "\t\t\t\t2.Sort\n" +
-                        "\t\t\t\t3.Find by parameter(calories)\n" +
-                        "\t\t\t\t4.Cancel\n");
+                System.out.println("""
+
+                        \t\t\tSalat
+                        \t\t\t\t1.Create
+                        \t\t\t\t2.Sort
+                        \t\t\t\t3.Find by parameter(calories)
+                        \t\t\t\t4.Cancel
+                        """);
                 System.out.print("\t\t\tSelect: ");
                 var = scanner.nextInt();
                 while (var <= 0 || var > 4) {
@@ -95,7 +104,7 @@ public class Menu {
                         }
                         sal.bubbleSort(var);
                     }
-                } else if (var == 3) {
+                } else {
                     if (sal == null){
                         System.out.println("You didn't make a salat. First, select the create option.");
                     }
@@ -112,7 +121,7 @@ public class Menu {
                 System.out.print("Insert any number to continue: ");
                 int numb = scanner.nextInt();
             }
-            else if (var == 4) {
+            else {
                 System.out.println("\n\n\n");
                 FileWorking file = new FileWorking();
                 file.FileReading("C:\\Users\\mk410\\OneDrive\\Desktop\\JavaProjects\\ComplexWork\\src\\com\\cooking\\Help.txt");
@@ -124,7 +133,7 @@ public class Menu {
 
     private void VegList(List<Vegetable> list){
         for(int i=0;i<list.size();i++){
-            System.out.println(String.format("\n\t%d.\n%s",i+1,list.get(i).toString()));
+            System.out.printf("\n\t%d.\n%s%n",i+1,list.get(i).toString());
         }
     }
 
@@ -132,27 +141,23 @@ public class Menu {
         scanner.useLocale(Locale.US);
         String name;
         double cal;
-        while(true){
+        do {
             System.out.print("\nInsert the vegetable: ");
             name = scanner.next();
             System.out.print("\nInsert the calories in 100 gramm: ");
             cal = scanner.nextFloat();
 
-            if (cal >= 1000){
-                veg.add(new HighCalorieVeg(name,cal));
+            if (cal >= 1000) {
+                veg.add(new HighCalorieVeg(name, cal));
+            } else {
+                veg.add(new LowCalorieVeg(name, cal));
             }
-            else {
-                veg.add(new LowCalorieVeg(name,cal));
-            }
-            while(!name.equals("Y") && !name.equals("N")){
+            while (!name.equals("Y") && !name.equals("N")) {
                 System.out.println("\nAdd another one(Y/N): ");
                 name = scanner.next();
             }
-            if (name.equals("N")){
-                break;
-            }
 
-        }
+        } while (!name.equals("N"));
         return veg;
     }
 
@@ -173,30 +178,27 @@ public class Menu {
         List<Vegetable> select = new ArrayList<>();
         System.out.println("List of not selected vegetables: ");
 
-        while (true){
+        do {
             VegList(choise);
             System.out.print("\n\t\tList of selected vegetables(insert '0' to complete the operation): ");
-            for(int i=0;i<select.size();i++){
-                System.out.print(select.get(i).getName() + " ");
+            for (Vegetable vegetable : select) {
+                System.out.print(vegetable.getName() + " ");
             }
             System.out.print("\n\n\tSelect: ");
             int var = scanner.nextInt();
-            while (var>choise.size() && var<0){
+            while (var > choise.size() && var < 0) {
                 System.out.print("\tSelect: ");
                 var = scanner.nextInt();
             }
-            if (var == 0){
+            if (var == 0) {
                 break;
             }
             select.add(choise.get((var - 1)));
-            choise.remove((var-1));
+            choise.remove((var - 1));
             System.out.println();
-            if (choise.size() == 0){
-                return select;
-            }
 
 
-        }
+        } while (choise.size() != 0);
         return select;
     }
 
